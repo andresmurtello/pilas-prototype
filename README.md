@@ -1,4 +1,4 @@
-﻿# Pilas — Prototipo navegable
+# Pilas — Prototipo navegable
 
 Repositorio independiente para iterar y publicar el prototipo visual de Pilas.
 
@@ -16,3 +16,7 @@ Este repositorio contiene únicamente la experiencia visual/demo. No contiene el
 ## Identidad
 
 Pilas Brand Package v2.0 es la única fuente visual normativa. El messaging vigente hasta v2.1 está documentado en `brand/messaging-v2.0-override.md`.
+
+## Governance
+
+Este repositorio adopta Governance v1 mediante `AGENTS.md`, `docs/governance/` y los templates de Issue/PR. El prototipo es una superficie visual/demo: no contiene ni reemplaza el motor financiero, la autoridad de datos ni Pilas Private.
