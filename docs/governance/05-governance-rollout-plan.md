@@ -34,7 +34,7 @@
 ## Fase 3 — Enforcement GitHub — PARCIAL
 
 - [x] `pilas-prototype/main`: requerir PR, `static-smoke` requerido, branch actualizado, force-push y borrado bloqueados, resolución de conversaciones y enforcement para administradores.
-- [ ] `finanzas-personales-core/main`: aplicar el mismo control con `test-windows` como required check. La configuración requiere permiso administrativo GitHub que no está disponible en la integración de esta sesión.
+- [ ] `finanzas-personales-core/main`: GitHub rechazó branch protection porque el repositorio es privado bajo un plan que no habilita esta función (`Upgrade to GitHub Pro or make this repository public`). Mantener el repo privado; al habilitar GitHub Pro, aplicar PR obligatorio, `test-windows` requerido, branch actualizado, resolución de conversaciones y bloqueo de force-push/borrado.
 - [x] Merge y deploy permanecen separados.
 - [x] Bypass debe ser excepcional y auditable.
 
