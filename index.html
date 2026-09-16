@@ -285,11 +285,11 @@ function txRow(t){const v=amounts(t),pv=provenance(t);return row(E(t.name),date(
 function bars(data,type='cat',context='analysis',denominator=null){
 const total=denominator===null?data.reduce((n,x)=>n+x.value,0):denominator;
 if(!data.length)return empty('Sin consumos','Selecciona otro periodo o ajusta los filtros.');
-const totalLabel=total>0?'<div class="share-total"><span>Total del desglose</span><strong>'+refMoney(total)+'</strong></div>':'';
+const splitTotal=data.reduce((a,x)=>({pen:a.pen+(x.pen||0),usd:a.usd+(x.usd||0)}),{pen:0,usd:0});const totalAmount=U.currency==='ORIGINAL'?htmlMoney(splitTotal.pen,splitTotal.usd):refMoney(total);const totalLabel=total>0?'<div class="share-total"><span>Total del desglose</span><strong>'+totalAmount+'</strong></div>':'';
 return '<div class="bars" data-share-total="'+total+'">'+data.map(x=>{
 const share=total>0?x.value/total*100:null;
 const pct=share===null?'—':share.toLocaleString('es-PE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
-const amount=U.currency==='ORIGINAL'?refMoney(x.value):htmlMoney(x.pen,x.usd);
+const amount=htmlMoney(x.pen,x.usd);
 const label=E(x.name)+', '+pct+' del total, '+E(currency(x.pen,x.usd));
 return '<button class="barbtn" data-action="breakdown" data-type="'+type+'" data-value="'+E(x.name)+'" data-context="'+context+'" aria-label="'+label+'"><span class="barline"><span class="barname">'+E(x.name)+'</span><span class="barstats"><span class="share">'+pct+'</span><strong>'+amount+'</strong></span></span><span class="track" aria-hidden="true"><span class="fill" style="width:'+Math.max(0,Math.min(100,share||0))+'%"></span></span></button>';
 }).join('')+'</div>'+totalLabel;
