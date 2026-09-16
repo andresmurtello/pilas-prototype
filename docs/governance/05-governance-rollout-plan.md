@@ -18,32 +18,25 @@
 
 **Condición de inicio:** F3.1-C de core y V8.2.1 de prototipo deben terminar/congelarse para no contaminar evidencia.
 
-### finanzas-personales-core ? CANDIDATO
-- [x] Rama exclusiva de governance desde `main` actualizado.
-- [x] Incorporar `docs/governance/`.
-- [x] Actualizar `AGENTS.md` y `docs/README.md` para apuntar al marco transversal.
-- [x] Reconciliar `working-agreement.md` sin duplicar reglas.
-- [x] Corregir nomenclatura de ramas para que no dependa de un agente concreto.
-- [x] Agregar issue/PR templates.
-- [ ] Review/CI/merge autorizado. La adopci?n no se considera integrada hasta merge a `main`.
+### finanzas-personales-core — INTEGRADO
+- [x] Governance v1 mergeado a `main` mediante PR #55 (`90a2666507db7f62fc57f4ed11439df358ee7452`).
+- [x] `docs/governance/`, `AGENTS.md`, `docs/README.md` y `working-agreement.md` reconciliados.
+- [x] Issue/PR templates gobernados incorporados.
+- [x] CI final sobre la baseline integrada: `318 passed, 7 skipped` y GitHub Actions verde.
+- [x] Gate B/Gate D, Pilas Private y la evidencia BCP ya estaban integrados antes del merge de Governance.
 
-### pilas-prototype — CANDIDATO
-- [x] Rama exclusiva `governance/v1-repo-adoption` desde `main@80b3f5f7382230c037feb859e86bc31ff6a3fc8b`.
-- [x] Añadir `AGENTS.md` específico del prototipo estático.
-- [x] Añadir `docs/governance/` canónico.
-- [x] Añadir issue/PR templates.
-- [x] Añadir CI/smoke mínimo aplicable al prototipo.
-- [ ] Review/CI/merge autorizado. La adopción no se considera integrada hasta merge a `main`.
+### pilas-prototype — INTEGRADO
+- [x] Governance v1 mergeado a `main` mediante PR #9 (`60c84666e00b2114f4c6d74b58fd2a459da15746`).
+- [x] `AGENTS.md`, `docs/governance/`, issue/PR templates y `prototype-ci` incorporados.
+- [x] `static-smoke` validado en CI.
+- [x] No se modificó la UX/UI funcional durante la adopción.
 
-## Fase 3 — Enforcement GitHub — PENDIENTE
+## Fase 3 — Enforcement GitHub — PARCIAL
 
-Después de mergear Governance v1:
-- requerir PR para `main`;
-- bloquear force-push/deletion de `main`;
-- configurar required checks existentes/aplicables;
-- resolver conversaciones/revisión antes de merge cuando sea técnicamente viable;
-- separar merge de deploy;
-- mantener bypass excepcional y auditable.
+- [x] `pilas-prototype/main`: requerir PR, `static-smoke` requerido, branch actualizado, force-push y borrado bloqueados, resolución de conversaciones y enforcement para administradores.
+- [ ] `finanzas-personales-core/main`: aplicar el mismo control con `test-windows` como required check. La configuración requiere permiso administrativo GitHub que no está disponible en la integración de esta sesión.
+- [x] Merge y deploy permanecen separados.
+- [x] Bypass debe ser excepcional y auditable.
 
 ## Fase 4 — Template para repos futuros — PENDIENTE
 
