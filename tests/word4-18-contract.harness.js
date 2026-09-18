@@ -1,0 +1,26 @@
+const fs=require('fs'),path=require('path');
+const src=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+let pass=0,fail=0;
+function check(name,ok){if(ok){console.log('PASS '+name);pass++;}else{console.error('FAIL '+name);fail++;}}
+check('Word4 closing and due are separate labels',src.includes("['Último cierre',cycleValue(c.closing)]")&&src.includes("['Próximo vencimiento',cycleValue(c.due)]"));
+check('Word4 missing close fixture exists',src.includes("id:'qore'")&&src.includes("closing:null"));
+check('Word5 insight fails closed without close/due',src.includes("if(!c.closing||!c.due||D.dismissedCycleInsights.includes"));
+check('Word5 copy is conditional',src.includes('considera hacerla después del cierre')&&src.includes('podría darte más días')&&src.includes('no garantiza ausencia de intereses'));
+check('Word6 canonical merchant helper exists',src.includes('function merchantOf(t)'));
+check('Word6 raw descriptor is preserved in origin',src.includes('<strong>Descriptor bancario</strong>'));
+check('Word6 edits are independent',src.includes("action('Corregir comercio','save-merchant'")&&src.includes("action('Cambiar categoría','save-category'"));
+check('Word6 OPEN PLAZA remains pending fixture',src.includes("name:'Open Plaza'")&&src.includes("raw:'OPEN PLAZA'")&&src.includes("needsReview:true"));
+check('Word7 four concepts are explicit',['Histórico','Tendencia','Tu presupuesto','Recomendación de Pilas'].every(x=>src.includes(x)));
+check('Word7 recommendation requires explicit apply',src.includes("action('Aplicar recomendación','apply-budget-recommendation'")&&src.includes('budgetOverrides'));
+check('Word8 no Pago exigible',!/Pago exigible/i.test(src));
+check('Word8 approved obligation labels',['Total facturado a pagar','Saldo pendiente','Cuota a pagar'].every(x=>src.includes(x)));
+check('Word9 shared UI font token',src.includes('--font-ui:')&&src.includes('font-family:var(--font-ui)'));
+check('Word15 direct deep-link copy path',src.includes("label=(hasOrigin?'Volver a ':'Ir a ')"));
+check('Word15 browser popstate preserved',src.includes("window.addEventListener('popstate'"));
+check('Word17 same occurrence identity',src.includes("id:p.id+'-'+d")&&src.includes('data-event-id='));
+check('Word18 cross-product loan demo fixture',src.includes("productType:'loan'")&&src.includes('Préstamo personal · demo'));
+check('Word18 statement total excluded from Cuotas copy',src.includes('El total facturado de una tarjeta no aparece aquí como cuota.'));
+check('Word18 no rate field on installment plan',!src.includes("['Interés',p.rate]")&&!src.includes('rate:'));
+check('Scope no shared expenses implementation',!src.includes('SharedExpenseSplit')&&!src.includes('receivable'));
+console.log('\n'+pass+'/'+(pass+fail)+' checks passed.');
+if(fail)process.exitCode=1;
