@@ -1,22 +1,33 @@
-# Pilas — Prototipo navegable
+# Pilas — prototipo navegable
 
-Repositorio independiente para iterar y publicar el prototipo visual de Pilas.
+Repositorio canónico de la experiencia web de Pilas. `main` contiene la UI estable que se publica y que también consume la vista privada local.
+
+## Fuente de verdad
+
+- **UX/UI y navegación:** este repositorio, rama `main`.
+- **Motor financiero, contratos y seguridad:** `finanzas-personales-core/main`.
+- **Datos privados:** permanecen fuera de Git y se inyectan localmente sobre esta misma UI. Ya no existe una bifurcación funcional de “Pilas Private”: Private es una capa de datos/evidencia, no otro producto ni otro frontend.
+
+## Alcance actual
+
+La baseline incluye Inicio, Análisis, Movimientos, Planificación, Presupuestos, Proyección mensual, Calendario, Cuotas, Membresías, Productos, Cuentas, Tarjetas, Deudas, Préstamos, Oportunidades y Mi cuenta/Fuentes. Los fixtures del repositorio son ficticios y están diseñados para ejercitar las mismas pantallas y reglas visuales que la vista privada.
+
+La especificación consolidada está en `docs/ux-ui-baseline-2026-09-20.md`.
 
 ## Versionado
 
-- `main`: última versión estable y publicada.
-- Tags `v7`, `v8`, `v9`, ...: hitos estables recuperables.
-- Ramas `prototype/v8`, `prototype/v9`, ...: trabajo de cada nueva iteración antes de pasarla a `main`.
-- El nombre técnico actual del repositorio y su URL pública se conservan temporalmente para no romper publicación/enlaces; no forman parte de la identidad visible vigente.
+- `main`: última versión estable/publicada.
+- Tags `vN`: hitos estables recuperables.
+- Ramas de trabajo: cambios antes de promoción a `main`.
 
-## Alcance
+## Datos y seguridad
 
-Este repositorio contiene únicamente la experiencia visual/demo. No contiene el motor financiero, credenciales ni datos financieros reales.
+Este repositorio **no contiene** credenciales, estados de cuenta, dumps, extractos, identificadores bancarios ni datos financieros reales. Los fixtures son sintéticos. La vista privada local reemplaza únicamente el bloque de datos/metadata y conserva esta misma UI.
 
 ## Identidad
 
-Pilas Brand Package v2.0 es la única fuente visual normativa. El messaging vigente hasta v2.1 está documentado en `brand/messaging-v2.0-override.md`.
+Pilas Brand Package v2.0 es la fuente visual normativa. El messaging vigente se mantiene en `brand/`.
 
 ## Governance
 
-Este repositorio adopta Governance v1 mediante `AGENTS.md`, `docs/governance/` y los templates de Issue/PR. El prototipo es una superficie visual/demo: no contiene ni reemplaza el motor financiero, la autoridad de datos ni Pilas Private.
+El repositorio adopta Governance v1 mediante `AGENTS.md`, `docs/governance/` y los templates de Issue/PR. El prototipo no sustituye la autoridad financiera del core.

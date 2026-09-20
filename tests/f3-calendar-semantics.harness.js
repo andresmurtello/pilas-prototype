@@ -5,7 +5,7 @@ const checks=[];
 const add=(name,pass)=>checks.push({name,pass});
 add('P08 no generic pago exigible',!/pago exigible/i.test(src));
 add('P04 closing copy says Ultimo cierre',src.includes('Último cierre'));
-add('P04 old Ultimo corte copy absent',!src.includes('Último corte'));
+add('P04 account/source cut remains distinct from card close',src.includes('Último corte autoritativo')&&src.includes('Último cierre'));
 add('P16 filter says Tipo de evento',src.includes("field('Tipo de evento','type'"));
 add('P16 all option says Todos los eventos',src.includes("label:'Todos los eventos'"));
 add('P16 calendar dot keyed only by event type',src.includes("class=\"caldot '+(e.type)+'\""));
