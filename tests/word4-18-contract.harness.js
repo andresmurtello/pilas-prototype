@@ -20,7 +20,7 @@ check('Word15 browser popstate preserved',src.includes("window.addEventListener(
 check('Word17 same occurrence identity',src.includes("id:p.id+'-'+d")&&src.includes('data-event-id='));
 check('Word18 cross-product loan demo fixture',src.includes("productType:'loan'")&&src.includes('Préstamo personal · demo'));
 check('Word18 statement total excluded from Cuotas copy',src.includes('El total facturado de una tarjeta no aparece aquí como cuota.'));
-check('Word18 no rate field on installment plan',!src.includes("['Interés',p.rate]")&&!src.includes('rate:'));
+check('Word18 rate is labeled explicitly, not confused with interest amount',src.includes("['Tasa',E(p.rate||'No disponible')]")&&!src.includes("['Interés',p.rate]"));
 check('Scope no shared expenses implementation',!src.includes('SharedExpenseSplit')&&!src.includes('receivable'));
 console.log('\n'+pass+'/'+(pass+fail)+' checks passed.');
 if(fail)process.exitCode=1;
