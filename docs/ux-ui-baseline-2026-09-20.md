@@ -74,7 +74,7 @@ La línea punteada representa el total de egresos.
 
 ### Flujo de caja
 
-Conserva la misma composición de egresos y agrega una línea de ingresos.
+Conserva la misma composición de egresos y agrega una línea de ingresos. A diferencia de Gastos y Compromisos, Flujo de caja no dibuja una línea punteada para el total de egresos: el total se muestra directamente sobre cada barra. La línea verde conserva el ingreso esperado y, cuando queda próxima al total en un mes con superávit, la etiqueta del egreso mantiene un halo de separación para evitar solapamientos; en déficit la línea puede atravesar la barra porque esa relación es informativa.
 
 Reglas promovidas:
 
@@ -111,8 +111,8 @@ Los gráficos de Inicio, Evolución, Gastos, Flujo y Compromisos comparten:
 - escala tipográfica de números y meses;
 - ancho visual de barras;
 - ritmo horizontal;
-- línea punteada de total;
-- separación vertical entre línea y etiqueta de total;
+- línea punteada de total en Inicio, Evolución, Gastos y Compromisos; Flujo de caja la omite por redundante;
+- etiqueta de total separada visualmente de la línea correspondiente o de la línea verde de ingresos;
 - leyendas compactas;
 - alineación de centro X entre barra, punto/línea, total y etiqueta mensual.
 
