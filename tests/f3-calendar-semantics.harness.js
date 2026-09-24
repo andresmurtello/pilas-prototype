@@ -11,7 +11,7 @@ add('P16 all option says Todos los eventos',src.includes("label:'Todos los event
 add('P16 calendar dot keyed only by event type',src.includes("class=\"caldot '+(e.type)+'\""));
 const legend=(src.match(/<div class="calendarlegend"[^>]*>([\s\S]*?)<\/div>/)||[])[1]||'';
 add('P16 legend does not encode Saldado',legend.length>0&&!/Saldado/.test(legend));
-add('P16 Calendar/List share one canonical events collection',src.includes('events=calendarEvents().filter')&&src.includes("calendarWidget(events,'calendar')")&&src.includes('events.filter(e=>e.date>=DEMO_DATE)'));
+add('P16 Calendar/List share one canonical events collection',src.includes('events=calendarEvents().filter')&&src.includes("calendarWidget(events,'calendar')")&&src.includes('events.filter(e=>e.date>=DATA_AS_OF)'));
 add('P01 inherited primary logo preserved',src.includes('Pilas_logo_primary_compact_transparent.png'));
 add('P14 inherited focus restoration preserved',src.includes('restoreFocusOrigin'));
 const failed=checks.filter(x=>!x.pass);

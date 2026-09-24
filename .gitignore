@@ -1,0 +1,7 @@
+# Local working backups of the prototype page are never product files.
+/index.before-*.html
+/index.v*-before-*.html
+/index.*.bak
+*.bak
+# Harness run outputs.
+tests/*.results.json
