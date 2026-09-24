@@ -10,7 +10,10 @@ check('recurrent variable tabs promoted',src.includes("analysis-behavior-tab")&&
 check('home compact projection promoted',src.includes('function homeProjectionChart'));
 check('chart total line is dotted',src.includes('stroke-dasharray'));
 check('chart total labels have explicit vertical gap',src.includes('analysis-total-label')&&src.includes('projection-svg-total'));
-check('income fixed semantics generic',src.includes("income_salary")&&src.includes('HABERES|PLANILLA|N[ÓO]MINA|SALARIO'));
+// Superseded 2026-09-24: projected income no longer infers salary from
+// descriptor regexes; only movements explicitly confirmed as income
+// (financial treatment) participate, split into fixed/variable patterns.
+check('income from confirmed treatment only',src.includes('function ft48ConfirmedIncomeRows')&&src.includes('ft46IsConfirmedIncome')&&!src.includes('HABERES|PLANILLA|N[ÓO]MINA|SALARIO'));
 check('variable income includes PEN and USD accounts',src.includes("variableCurrencies:['PEN','USD']")&&src.includes('Soles (S/) + Dólares ($)'));
 check('debts page promoted',src.includes("r==='/productos/deudas'")&&src.includes('function debtsPage'));
 check('loan and mortgage demo fixtures promoted',src.includes("id:'loan-demo'")&&src.includes("id:'mortgage-demo'"));

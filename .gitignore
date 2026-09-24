@@ -3,3 +3,5 @@
 /index.v*-before-*.html
 /index.*.bak
 *.bak
+# Harness run outputs.
+tests/*.results.json
